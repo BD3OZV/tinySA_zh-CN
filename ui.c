@@ -1564,49 +1564,49 @@ static const struct {
   const keypads_t *keypad_type;
   char * name;
 } keypads_mode_tbl[KM_NONE] = {
-[KM_START]        = {keypads_freq        , "START"}, // start
-[KM_STOP]         = {keypads_freq        , "STOP"}, // stop
-[KM_CENTER]       = {keypads_freq        , "CENTER"}, // center
-[KM_SPAN]         = {keypads_freq        , "SPAN"}, // span
-[KM_CW]           = {keypads_freq        , "FREQ"}, // cw freq
-[KM_REFLEVEL]     = {keypads_plusmin_unit, "REF\nLEVEL"}, // reflevel #5
+[KM_START]        = {keypads_freq        , "\x80\x62\x80\x63" /* 起始 */}, // start
+[KM_STOP]         = {keypads_freq        , "\x80\x64\x80\x65" /* 终止 */}, // stop
+[KM_CENTER]       = {keypads_freq        , "\x80\x38\x80\x66" /* 中心 */}, // center
+[KM_SPAN]         = {keypads_freq        , "\x80\x52\x80\x2B" /* 跨度 */}, // span
+[KM_CW]           = {keypads_freq        , "\x80\x20\x80\x22" /* 频率 */}, // cw freq
+[KM_REFLEVEL]     = {keypads_plusmin_unit, "\x80\x83\x80\x84\x80\x23\x80\x21" /* 参考电平 */}, // reflevel #5
 [KM_SCALE]        = {keypads_pos_unit    , "SCALE"}, // scale
-[KM_ATTENUATION]  = {keypads_positive    , "ATTENUATE"}, // attenuation
-[KM_ACTUALPOWER]  = {keypads_plusmin_unit, "ACTUAL\nPOWER"}, // actual power
-[KM_IF]           = {keypads_freq        , "IF"}, // IF
-[KM_SAMPLETIME]   = {keypads_positive    , "SAMPLE\nDELAY"}, // sample delay #10
-[KM_LOWOUTLEVEL]  = {keypads_plusmin     , "OUTPUT\nLEVEL"},    // KM_LOWOUTLEVEL
-[KM_DECAY]        = {keypads_positive    , "DECAY"},    // KM_DECAY
-[KM_NOISE]        = {keypads_positive    , "NOISE\nLEVEL"},    // KM_NOISE
+[KM_ATTENUATION]  = {keypads_positive    , "\x80\x4A\x80\x3E" /* 衰减 */}, // attenuation
+[KM_ACTUALPOWER]  = {keypads_plusmin_unit, "\x81\x2E\x81\x9F\x80\x99\x80\x22" /* 实际功率 */}, // actual power
+[KM_IF]           = {keypads_freq        , "\x80\x38\x80\x20" /* 中频 */}, // IF
+[KM_SAMPLETIME]   = {keypads_positive    , "\x80\x75\x80\x76\x81\x38\x80\x45" /* 采样延时 */}, // sample delay #10
+[KM_LOWOUTLEVEL]  = {keypads_plusmin     , "\x80\x2E\x80\x37\x80\x23\x80\x21" /* 输出电平 */},    // KM_LOWOUTLEVEL
+[KM_DECAY]        = {keypads_positive    , "\x80\x4A\x80\x3E\x80\x31\x80\x22" /* 衰减速率 */},    // KM_DECAY
+[KM_NOISE]        = {keypads_positive    , "\x80\x3B\x80\x4E\x80\x23\x80\x21" /* 噪声电平 */},    // KM_NOISE
 #ifdef TINYSA4
 [KM_FREQ_CORR]    = {keypads_plusmin_freq, "PPB"},    // KM_FREQ_CORR
 #else
-[KM_10MHZ]        = {keypads_freq        , "FREQ"},    // KM_10MHz
+[KM_10MHZ]        = {keypads_freq        , "\x80\x20\x80\x22" /* 频率 */},    // KM_10MHz
 #endif
-[KM_REPEAT]       = {keypads_positive    , "SAMPLE\nREPEAT"},    // KM_REPEA #15
-[KM_EXT_GAIN]     = {keypads_plusmin     , "EXT\nGAIN"},    // KM_EXT_GAIN
-[KM_TRIGGER]      = {keypads_plusmin_unit, "LEVEL"},    // KM_TRIGGER
-[KM_LEVELSWEEP]   = {keypads_plusmin     , "LEVEL\nSWEEP"},    // KM_LEVELSWEEP
-[KM_SWEEP_TIME]   = {keypads_time        , "SWEEP\nSECONDS"},    // KM_SWEEP_TIME
-[KM_OFFSET_DELAY] = {keypads_positive    , "OFFSET\nDELAY"}, // KM_OFFSET_DELAY #20
-[KM_FAST_SPEEDUP] = {keypads_positive    , "NARROW\nSPEEDUP"}, // KM_FAST_SPEEDUP
-[KM_FASTER_SPEEDUP] = {keypads_positive  , "WIDE\nSPEEDUP"}, // KM_FAST_SPEEDUP
-[KM_GRIDLINES]    = {keypads_positive    , "MINIMUM\nGRIDLINES"}, // KM_GRIDLINES
-[KM_MARKER]       = {keypads_freq        , "MARKER\nFREQ"}, // KM_MARKER
-[KM_MODULATION]   = {keypads_positive    , "MODULATION\nFREQ"}, // KM_MODULATION
-[KM_HIGHOUTLEVEL] = {keypads_plusmin     , "OUTPUT\nLEVEL"},    // KM_HIGHOUTLEVEL #25
+[KM_REPEAT]       = {keypads_positive    , "\x80\x75\x80\x76\x80\x73\x80\x51" /* 采样重复 */},    // KM_REPEA #15
+[KM_EXT_GAIN]     = {keypads_plusmin     , "\x80\x86\x81\x44\x81\x45" /* 外增益 */},    // KM_EXT_GAIN
+[KM_TRIGGER]      = {keypads_plusmin_unit, "\x80\x23\x80\x21" /* 电平 */},    // KM_TRIGGER
+[KM_LEVELSWEEP]   = {keypads_plusmin     , "\x80\x23\x80\x21\x80\x26\x80\x2D" /* 电平扫描 */},    // KM_LEVELSWEEP
+[KM_SWEEP_TIME]   = {keypads_time        , "\x80\x26\x80\x2D\x82\x29\x80\x56" /* 扫描秒数 */},    // KM_SWEEP_TIME
+[KM_OFFSET_DELAY] = {keypads_positive    , "\x81\x2F\x80\x82\x81\x38\x80\x45" /* 偏移延时 */}, // KM_OFFSET_DELAY #20
+[KM_FAST_SPEEDUP] = {keypads_positive    , "\x80\x57\x80\x26\x80\x58\x80\x31" /* 窄扫加速 */}, // KM_FAST_SPEEDUP
+[KM_FASTER_SPEEDUP] = {keypads_positive  , "\x80\x30\x80\x26\x80\x58\x80\x31" /* 宽扫加速 */}, // KM_FAST_SPEEDUP
+[KM_GRIDLINES]    = {keypads_positive    , "\x80\x2C\x80\x42\x80\x79\x80\x27" /* 最小格线 */}, // KM_GRIDLINES
+[KM_MARKER]       = {keypads_freq        , "\x80\x2F\x80\x32\x80\x20\x80\x22" /* 标记频率 */}, // KM_MARKER
+[KM_MODULATION]   = {keypads_positive    , "\x80\x2A\x80\x4F\x80\x20\x80\x22" /* 调制频率 */}, // KM_MODULATION
+[KM_HIGHOUTLEVEL] = {keypads_plusmin     , "\x80\x2E\x80\x37\x80\x23\x80\x21" /* 输出电平 */},    // KM_HIGHOUTLEVEL #25
 #ifdef TINYSA4
-[KM_COR_AM]       = {keypads_plusmin     , "COR\nAM"},    // KM_COR_AM
-[KM_COR_WFM]      = {keypads_plusmin     , "COR\nWFM"},    // KM_COR_WFM
-[KM_COR_NFM]      = {keypads_plusmin     , "COR\nNFM"},    // KM_COR_NFM
-[KM_DEVIATION]    = {keypads_freq        , "DEVIATION"}, // KM_DEVIATION
-[KM_DEPTH]        = {keypads_positive    , "DEPTH%"}, // KM_DEPTH
-[KM_IF2]          = {keypads_freq        , "IF2"}, // KM_IF2
+[KM_COR_AM]       = {keypads_plusmin     , "\x80\x2A\x80\x7D\x80\x29\x80\x50" /* 调幅校正 */},    // KM_COR_AM
+[KM_COR_WFM]      = {keypads_plusmin     , "\x80\x30\x80\x2A\x80\x20\x80\x29" /* 宽调频校 */},    // KM_COR_WFM
+[KM_COR_NFM]      = {keypads_plusmin     , "\x80\x57\x80\x2A\x80\x20\x80\x29" /* 窄调频校 */},    // KM_COR_NFM
+[KM_DEVIATION]    = {keypads_freq        , "\x80\x20\x81\x2F" /* 频偏 */}, // KM_DEVIATION
+[KM_DEPTH]        = {keypads_positive    , "\x81\x94\x80\x2B\x25" /* 深度% */}, // KM_DEPTH
+[KM_IF2]          = {keypads_freq        , "\x80\x38\x80\x20\x32" /* 中频2 */}, // KM_IF2
 [KM_R]            = {keypads_plusmin     , "R"}, // KM_R    #30
 [KM_MOD]          = {keypads_positive    , "MODULO"}, // KM_MOD
-[KM_CP]           = {keypads_positive    , "CP"}, // KM_CP
+[KM_CP]           = {keypads_positive    , "\x80\x71\x80\x98" /* 信道 */}, // KM_CP
 #endif
-[KM_ATTACK]       = {keypads_positive    , "ATTACK"},    // KM_ATTACK
+[KM_ATTACK]       = {keypads_positive    , "\x80\x69\x80\x4C\x80\x31\x80\x22" /* 上升速率 */},    // KM_ATTACK
 #ifdef __ULTRA__
 [KM_ULTRA_START]  = {keypads_freq        , "ULTRA\nSTART"}, // KM_ULTRA_START
 [KM_HARM_START]   = {keypads_freq        , "HARM\nSTART"}, // KM_HARM_START
@@ -1614,23 +1614,23 @@ static const struct {
 #ifdef TINYSA4
 [KM_EXP_AVER]     = {keypads_positive    , "EXPONENTIAL\nAVERAGING"}, //KM_EXP_AVER
 #endif
-[KM_LEVEL]        = {keypads_plusmin     , "LEVEL"}, // KM_LEVEL
+[KM_LEVEL]        = {keypads_plusmin     , "\x80\x23\x80\x21" /* 电平 */}, // KM_LEVEL
 #ifdef __LIMITS__
-[KM_LIMIT_FREQ]   = {keypads_freq         , "FREQ"},  // KM_LIMIT_FREQ
-[KM_LIMIT_LEVEL]  = {keypads_plusmin_unit , "LEVEL"},  // KM_LIMIT_LEVEL
+[KM_LIMIT_FREQ]   = {keypads_freq         , "\x80\x20\x80\x22" /* 频率 */},  // KM_LIMIT_FREQ
+[KM_LIMIT_LEVEL]  = {keypads_plusmin_unit , "\x80\x23\x80\x21" /* 电平 */},  // KM_LIMIT_LEVEL
 #endif
 #ifdef __BANDS__
-[KM_BAND_START]  = {keypads_freq         , "START\nFREQ"},  // KM_BAND_START
-[KM_BAND_END]    = {keypads_freq         , "STOP\nFREQ"},  // KM_BAND_END
-[KM_BAND_CENTER]  = {keypads_freq         , "CENTER\nFREQ"},  // KM_BAND_CENTER
-[KM_BAND_SPAN]   = {keypads_freq         , "SPAN\nFREQ"},  // KM_BAND_SPAN
-[KM_BAND_LEVEL]  = {keypads_plusmin_unit , "LEVEL"},  // KM_BAND_LEVEL
+[KM_BAND_START]  = {keypads_freq         , "\x80\x62\x80\x63\x80\x20\x80\x22" /* 起始频率 */},  // KM_BAND_START
+[KM_BAND_END]    = {keypads_freq         , "\x80\x64\x80\x65\x80\x20\x80\x22" /* 终止频率 */},  // KM_BAND_END
+[KM_BAND_CENTER]  = {keypads_freq         , "\x80\x38\x80\x66\x80\x20\x80\x22" /* 中心频率 */},  // KM_BAND_CENTER
+[KM_BAND_SPAN]   = {keypads_freq         , "\x80\x52\x80\x2B\x80\x20\x80\x22" /* 跨度频率 */},  // KM_BAND_SPAN
+[KM_BAND_LEVEL]  = {keypads_plusmin_unit , "\x80\x23\x80\x21" /* 电平 */},  // KM_BAND_LEVEL
 [KM_BAND_NAME]   = {keypads_text ,          "NAME"},  // KM_BAND_NAME
 #endif
-[KM_MARKER_TIME]  = {keypads_time        , "MARKER\nTIME"}, // KM_MARKER_TIME
-[KM_VAR]          = {keypads_freq        , "JOG\nSTEP"}, // jog step
+[KM_MARKER_TIME]  = {keypads_time        , "\x80\x2F\x80\x32\x80\x45\x80\x41" /* 标记时间 */}, // KM_MARKER_TIME
+[KM_VAR]          = {keypads_freq        , "\x81\x6B\x80\x7A" /* 步进 */}, // jog step
 #ifdef __NOISE_FIGURE__
-[KM_NF]           = {keypads_plusmin     , "NOISE\nFIGURE"}, // noise figure of tinySA
+[KM_NF]           = {keypads_plusmin     , "\x80\x3B\x80\x4E\x81\x26\x80\x56" /* 噪声系数 */}, // noise figure of tinySA
 #endif
 [KM_LINEAR_SCALE] = {keypads_plusmin     , "SCALE"}, // scale for linear units
 #ifdef TINYSA4
@@ -1638,17 +1638,17 @@ static const struct {
 [KM_DIRECT_STOP]  = {keypads_freq        , "DIRECT\nSTOP"}, // KM_DIRECT_STOP
 [KM_OVERCLOCK]       = {keypads_freq        , "OVERCLOCK"},       // KM_OVERCLOCK
 #ifdef __USE_RTC__
-[KM_RTC_DATE]     = {keypads_positive    , "SET DATE\n YYMMDD"}, // Date
-[KM_RTC_TIME]     = {keypads_positive    , "SET TIME\n HHMMSS"}, // Time
-[KM_INTERVAL]     = {keypads_positive    , "REPEAT\nHHMMSS"}, // Interval
+[KM_RTC_DATE]     = {keypads_positive    , "\x80\x3C\x80\x28\x81\x33\x81\x34" /* 设置日期 */}, // Date
+[KM_RTC_TIME]     = {keypads_positive    , "\x80\x3C\x80\x28\x80\x45\x80\x41" /* 设置时间 */}, // Time
+[KM_INTERVAL]     = {keypads_positive    , "\x80\x3C\x80\x28\x80\x41\x80\x8A" /* 设置间隔 */}, // Interval
 #endif
 [KM_PRESET_NAME]   = {keypads_text ,          "NAME"},  // KM_PRESET_NAME
 #endif
-[KM_CODE]         = {keypads_positive    , "CODE"},              // KM_CODE
+[KM_CODE]         = {keypads_positive    , "\x81\x90\x81\x91" /* 编码 */},              // KM_CODE
 #ifdef __USE_SD_CARD__
 [KM_FILENAME]     = {keypads_text        , "NAME"},  // filename
 #endif
-[KM_TRIGGER_GRID] = {keypads_time        , "INTERVAL"},              // KM_CODE
+[KM_TRIGGER_GRID] = {keypads_time        , "\x80\x41\x80\x8A" /* 间隔 */},              // KM_CODE
 #ifdef __BURST__
 [KM_BURST_PERIOD] = {keypads_plusmin_unit, "BURST\nPERIOD"},
 [KM_BURST_ON]     = {keypads_plusmin_unit, "BURST\nON TIME"},
@@ -2597,10 +2597,10 @@ static UI_FUNCTION_ADV_CALLBACK(menu_lowoutput_settings_acb)
     if (data == 255) {
       plot_printf(mode_string, sizeof mode_string, "%s%s%s%s%s",
                   (!force_signal_path ? "" : path_text[test_path]),
-                  (get_sweep_frequency(ST_START) < MINIMUM_DIRECT_FREQ ? " SINE" : "" ),
-                  (get_sweep_frequency(ST_STOP) >= MINIMUM_DIRECT_FREQ ? " SQUARE WAVE" : ""),
-                  (get_sweep_frequency(ST_STOP) > MAX_LOW_OUTPUT_FREQ && setting.mixer_output ? " MIXER" : ""),
-                  (LO_harmonic ? " HARM" : "")
+                  (get_sweep_frequency(ST_START) < MINIMUM_DIRECT_FREQ ? "\x80\x50\x81\x83" /* 正弦 */ : "" ),
+                  (get_sweep_frequency(ST_STOP) >= MINIMUM_DIRECT_FREQ ? "\x81\x84\x80\x6E" /* 方波 */ : ""),
+                  (get_sweep_frequency(ST_STOP) > MAX_LOW_OUTPUT_FREQ && setting.mixer_output ? "\x81\x21\x80\x20" /* 混频 */ : ""),
+                  (LO_harmonic ? "\x80\x96\x80\x6E" /* 谐波 */ : "")
                   );
       b->param_1.text = mode_string;
       return; }
@@ -2812,10 +2812,10 @@ static UI_FUNCTION_ADV_CALLBACK(menu_spur_acb)
   (void)item;
   if (b){
     if (setting.mode == M_LOW) {
-      b->param_1.text = "SPUR\nREMOVAL";
+      b->param_1.text = "\x81\x67\x81\x68\x80\x9B\x80\x4F" /* 杂散抑制 */;
       b->icon = AUTO_ICON(setting.spur_removal);
     } else {
-      b->param_1.text = "MIRROR\nMASKING";
+      b->param_1.text = "\x82\x24\x82\x25\x80\x9B\x80\x4F" /* 镜像抑制 */;
 #ifdef TINYSA4
       b->icon = AUTO_ICON(setting.mirror_masking ? 1 : 0);  // mirror_masking does not yet have an auto mode so this is never an auto icon
 #else
@@ -3691,14 +3691,14 @@ static UI_FUNCTION_ADV_CALLBACK(menu_waterfall_acb){
 #ifdef TINYSA4
     if (!(sweep_mode & SWEEP_ENABLE)){
       b->icon = (sweep_mode & SWEEP_ONCE) ? BUTTON_ICON_CHECK : BUTTON_ICON_NOCHECK;
-      plot_printf(b->text, sizeof(b->text), "SINGLE\nSWEEP");
+      plot_printf(b->text, sizeof(b->text), "\x80\x67\x80\x88\x80\x26\x80\x2D" /* 单次扫描 */);
     } else {
       b->icon = setting.waterfall ? BUTTON_ICON_CHECK : BUTTON_ICON_NOCHECK;
-      plot_printf(b->text, sizeof(b->text), "WATER\nFALL");
+      plot_printf(b->text, sizeof(b->text), "\x80\x8F\x80\x90\x80\x55" /* 瀑布图 */);
     }
 #else
     b->icon = setting.waterfall ? BUTTON_ICON_CHECK : BUTTON_ICON_NOCHECK;
-    plot_printf(b->text, sizeof(b->text), "WATER\nFALL");
+    plot_printf(b->text, sizeof(b->text), "\x80\x8F\x80\x90\x80\x55" /* 瀑布图 */);
 #endif
     return;
   }
@@ -4789,31 +4789,31 @@ static UI_FUNCTION_ADV_CALLBACK(menu_sd_icon_save_traces_acb)
 // Back button submenu list
 
 static const menuitem_t menu_back[] = {
-  { MT_CANCEL,   0, S_LARROW" BACK", NULL },
+  { MT_CANCEL,   0, S_LARROW"\x81\x80\x81\x81" /* 返回 */, NULL },
   { MT_NONE,     0, NULL, NULL } // sentinel
 };
 
 static const menuitem_t menu_store_preset[] =
 {
-  { MT_ADV_CALLBACK, 0,  "STORE AS\nSTARTUP",menu_store_preset_acb},
+  { MT_ADV_CALLBACK, 0,  "\x80\x36\x81\x3D\x80\x48\x80\x81" /* 存为开机 */,menu_store_preset_acb},
   { MT_ADV_CALLBACK |MT_REPEATS,  DATA_STARTS_REPEATS(1,4),  MT_CUSTOM_LABEL,         menu_store_preset_acb},
 #ifdef TINYSA4
-  { MT_CALLBACK,    FMT_PRS_FILE,   "STORE\n"S_RARROW"SD",     menu_sdcard_cb},
+  { MT_CALLBACK,    FMT_PRS_FILE,   "\x80\x33\x80\x36" /* 保存 */S_RARROW"SD",     menu_sdcard_cb},
 #endif
-  { MT_ADV_CALLBACK, 100,"FACTORY\nDEFAULTS",menu_store_preset_acb},
+  { MT_ADV_CALLBACK, 100,"\x81\x3E\x80\x51\x80\x37\x81\x3F" /* 恢复出厂 */,menu_store_preset_acb},
   { MT_NONE,     0,     NULL,menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_load_preset[] =
 {
-  { MT_ADV_CALLBACK,            0,                          "LOAD\nSTARTUP", menu_load_preset_acb},
+  { MT_ADV_CALLBACK,            0,                          "\x80\x35\x80\x24\x80\x48\x80\x81" /* 载入开机 */, menu_load_preset_acb},
   { MT_ADV_CALLBACK|MT_REPEATS, DATA_STARTS_REPEATS(1,4),   MT_CUSTOM_LABEL, menu_load_preset_acb},
-  { MT_ADV_CALLBACK,            101,                        "LOAD\nDEFAULTS",menu_store_preset_acb},
-  { MT_ADV_CALLBACK,            _MODE_DONT_SAVE_STATE,      "SAVE\nSETTINGS",   menu_save_state_acb},
+  { MT_ADV_CALLBACK,            101,                        "\x80\x35\x80\x24\x82\x21\x82\x22" /* 载入默认 */,menu_store_preset_acb},
+  { MT_ADV_CALLBACK,            _MODE_DONT_SAVE_STATE,      "\x80\x33\x80\x36\x80\x3C\x80\x28" /* 保存设置 */,   menu_save_state_acb},
 #ifdef __SD_FILE_BROWSER__
   { MT_CALLBACK, FMT_PRS_FILE, "LOAD FROM\n SD",            menu_sdcard_browse_cb },
 #endif
-  { MT_SUBMENU,                 0,                          "STORE"  ,       menu_store_preset},
+  { MT_SUBMENU,                 0,                          "\x80\x33\x80\x36" /* 保存 */  ,       menu_store_preset},
   { MT_NONE,     0,     NULL, menu_back} // next-> menu_back
 };
 #ifdef TINYSA4
@@ -4836,7 +4836,7 @@ static const menuitem_t menu_lo_drive[] = {
 #endif
 
 static const menuitem_t  menu_modulation[] = {
-  { MT_FORM | MT_TITLE,    0,  "MODULATION",NULL},
+  { MT_FORM | MT_TITLE,    0,  "\x80\x2A\x80\x4F" /* 调制 */,NULL},
   { MT_FORM | MT_ADV_CALLBACK, MO_NONE,             MT_CUSTOM_LABEL,    menu_modulation_acb},
   { MT_FORM | MT_ADV_CALLBACK | MT_LOW, MO_AM,      "AM",    menu_modulation_acb},
 #ifdef TINYSA4
@@ -4883,7 +4883,7 @@ static const menuitem_t  menu_sweep[] = {
   { MT_FORM | MT_KEYPAD,   KM_SPAN,             "SPAN: %s",         VARIANT("0..350MHz", range_text)},
   { MT_FORM | MT_KEYPAD | MT_LOW, KM_LEVELSWEEP,"LEVEL CHANGE: %s", VARIANT("-70..70","-90..90")},
   { MT_FORM | MT_KEYPAD,   KM_SWEEP_TIME,       "SWEEP TIME: %s",   "0..600 seconds"},
-  { MT_FORM | MT_SUBMENU,  0,                   "SWEEP POINTS",   menu_sweep_points_form},
+  { MT_FORM | MT_SUBMENU,  0,                   "\x80\x26\x80\x2D\x81\x56\x80\x56" /* 扫描点数 */,   menu_sweep_points_form},
   { MT_FORM | MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 #ifdef TINYSA4
@@ -5019,19 +5019,19 @@ const menuitem_t menu_marker_search[] = {
 const menuitem_t menu_marker_modify[] = {
   { MT_ADV_CALLBACK, 0,            "MARKER %s",      menu_marker_modify_acb},
   { MT_ADV_CALLBACK, M_DELTA,       "DELTA %s",    menu_marker_modify_acb},
-  { MT_ADV_CALLBACK, M_NOISE,       "NOISE",    menu_marker_modify_acb},
-  { MT_ADV_CALLBACK, M_TRACKING,    "TRACKING", menu_marker_modify_acb},
+  { MT_ADV_CALLBACK, M_NOISE,       "\x80\x3B\x80\x4E" /* 噪声 */,    menu_marker_modify_acb},
+  { MT_ADV_CALLBACK, M_TRACKING,    "\x81\x5B\x81\x5C" /* 跟踪 */, menu_marker_modify_acb},
   { MT_ADV_CALLBACK, M_STORED,      "TRACE %s",   menu_marker_modify_acb},
-  { MT_ADV_CALLBACK, M_AVER,      "TRACE\nAVERAGE",   menu_marker_modify_acb},
-  { MT_SUBMENU,  0,                 "SEARCH",   menu_marker_search},
-  { MT_CALLBACK, M_DELETE,          "DELETE",   menu_marker_delete_cb},
+  { MT_ADV_CALLBACK, M_AVER,      "\x80\x3D\x80\x27\x80\x39\x80\x25" /* 迹线均值 */,   menu_marker_modify_acb},
+  { MT_SUBMENU,  0,                 "\x80\x5A\x80\x5B" /* 搜索 */,   menu_marker_search},
+  { MT_CALLBACK, M_DELETE,          "\x81\x5D\x81\x5E" /* 删除 */,   menu_marker_delete_cb},
   { MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 
 #ifdef __TRIGGER_TRACE__
 static const menuitem_t menu_trigger_level[] =
 {
- { MT_ADV_CALLBACK, 255,                            "TRIGGER\nLEVEL",       menu_trigger_level_acb},
+ { MT_ADV_CALLBACK, 255,                            "\x80\x3F\x80\x87\x80\x23\x80\x21" /* 触发电平 */,       menu_trigger_level_acb},
  { MT_ADV_CALLBACK|MT_REPEATS,DATA_STARTS_REPEATS(0,TRACES_MAX),"TRIGGER\nTRACE %d",  menu_trigger_level_acb},
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
@@ -5068,17 +5068,17 @@ static const menuitem_t menu_band_modify[] =
  { MT_KEYPAD,  KM_BAND_SPAN,      "SPAN\n\b%s",           "Span"},
  { MT_KEYPAD,  KM_BAND_LEVEL,     "LEVEL\n\b%s",          "Level"},
  { MT_KEYPAD,  KM_BAND_NAME,      "NAME\n\b%s",           "Name"},
-  { MT_CALLBACK,0,                 "DISABLE",              menu_BAND_disable_cb},
+  { MT_CALLBACK,0,                 "\x80\x53\x81\x30" /* 关闭 */,              menu_BAND_disable_cb},
   { MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_band_select[] = {
   { MT_ADV_CALLBACK | MT_REPEATS,   DATA_STARTS_REPEATS(0,BANDS_MAX), MT_CUSTOM_LABEL,  menu_band_select_acb },
-  { MT_ADV_CALLBACK,                0                               , "ALTERN",  menu_multi_trace_acb },
+  { MT_ADV_CALLBACK,                0                               , "\x81\x8E\x81\x8F" /* 交替 */,  menu_multi_trace_acb },
 #ifdef __USE_SD_CARD__
-  { MT_CALLBACK,    FMT_BND_FILE,  "BANDS"S_RARROW"\nSD",     menu_sdcard_cb},
+  { MT_CALLBACK,    FMT_BND_FILE,  "\x80\x20\x80\x46" /* 频段 */S_RARROW"\nSD",     menu_sdcard_cb},
 #ifdef __SD_FILE_BROWSER__
-  { MT_CALLBACK, FMT_BND_FILE, "SD"S_RARROW"\nBANDS",            menu_sdcard_browse_cb },
+  { MT_CALLBACK, FMT_BND_FILE, "SD"S_RARROW"\x80\x20\x80\x46" /* 频段 */,            menu_sdcard_browse_cb },
 #endif
 #endif
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
@@ -5092,9 +5092,9 @@ const menuitem_t menu_marker_sel[] = {
   { MT_CALLBACK, 3, "MARKER %d", menu_marker_sel_cb },
   { MT_CALLBACK, 4, "MARKER %d", menu_marker_sel_cb },
 //  { MT_CALLBACK, 0, "ALL OFF", menu_marker_sel_cb },
-  { MT_CALLBACK, 0, "DELTA", menu_marker_sel_cb },
-  { MT_CALLBACK, 0, "NOISE", menu_marker_sel_cb },
-  { MT_CALLBACK, 0, "TRACKING", menu_marker_sel_cb },
+  { MT_CALLBACK, 0, "\x80\x95\x80\x25" /* 差值 */, menu_marker_sel_cb },
+  { MT_CALLBACK, 0, "\x80\x3B\x80\x4E" /* 噪声 */, menu_marker_sel_cb },
+  { MT_CALLBACK, 0, "\x81\x5B\x81\x5C" /* 跟踪 */, menu_marker_sel_cb },
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 #endif
@@ -5110,20 +5110,20 @@ static const menuitem_t menu_marker_ref_select[] = {
 };
 
 const menuitem_t menu_marker_ops[] = {
-  { MT_CALLBACK, ST_START,  S_RARROW" START",    menu_marker_op_cb },
-  { MT_CALLBACK, ST_STOP,   S_RARROW" STOP",     menu_marker_op_cb },
-  { MT_CALLBACK, ST_CENTER, S_RARROW" CENTER",   menu_marker_op_cb },
-  { MT_CALLBACK, ST_SPAN,   S_RARROW" SPAN",     menu_marker_op_cb },
-  { MT_CALLBACK, 4,         S_RARROW" REF LEVEL",menu_marker_op_cb },
+  { MT_CALLBACK, ST_START,  S_RARROW"\x80\x62\x80\x63" /* 起始 */,    menu_marker_op_cb },
+  { MT_CALLBACK, ST_STOP,   S_RARROW"\x80\x64\x80\x65" /* 终止 */,     menu_marker_op_cb },
+  { MT_CALLBACK, ST_CENTER, S_RARROW"\x80\x38\x80\x66" /* 中心 */,   menu_marker_op_cb },
+  { MT_CALLBACK, ST_SPAN,   S_RARROW"\x80\x52\x80\x2B" /* 跨度 */,     menu_marker_op_cb },
+  { MT_CALLBACK, 4,         S_RARROW"\x80\x83\x80\x84\x80\x23\x80\x21" /* 参考电平 */,menu_marker_op_cb },
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_marker[] = {
 //  { MT_SUBMENU,  0, "SELECT\nMARKER",     menu_marker_sel},
-  { MT_SUBMENU,         0, "MODIFY\nMARKERS",       menu_marker_modify},
-  { MT_SUBMENU,         0, "MARKER\nOPS",           menu_marker_ops},
-  { MT_SUBMENU,         0, "SEARCH\nMARKER",        menu_marker_search},
-  { MT_ADV_CALLBACK,    1, "RESET\nMARKERS",        menu_markers_reset_acb},
+  { MT_SUBMENU,         0, "\x80\x93\x80\x94\x80\x2F\x80\x32" /* 修改标记 */,       menu_marker_modify},
+  { MT_SUBMENU,         0, "\x80\x2F\x80\x32\x81\x5F\x81\x60" /* 标记操作 */,           menu_marker_ops},
+  { MT_SUBMENU,         0, "\x80\x5A\x80\x5B\x80\x2F\x80\x32" /* 搜索标记 */,        menu_marker_search},
+  { MT_ADV_CALLBACK,    1, "\x80\x51\x80\x85\x80\x2F\x80\x32" /* 复位标记 */,        menu_markers_reset_acb},
   { MT_ADV_CALLBACK,    2, "%d MARKERS",            menu_markers_reset_acb},
   { MT_ADV_CALLBACK,    4, "%d MARKERS",            menu_markers_reset_acb},
 #ifdef TINYSA4
@@ -5135,7 +5135,7 @@ static const menuitem_t menu_marker[] = {
 
 #ifdef __HAS_DFU__
 static const menuitem_t menu_dfu[] = {
-  { MT_FORM | MT_CALLBACK, 0, "ENTER DFU",      menu_dfu_cb},
+  { MT_FORM | MT_CALLBACK, 0, "\x80\x7A\x80\x24\x44\x46\x55" /* 进入DFU */,      menu_dfu_cb},
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 #endif
@@ -5184,14 +5184,14 @@ static const menuitem_t menu_sweep_points_form[] = {
 
 static const menuitem_t menu_sweep_speed[] =
 {
- { MT_ADV_CALLBACK,     SD_NORMAL,     "NORMAL",          menu_scanning_speed_acb},    // order must match definition of enum
- { MT_ADV_CALLBACK,     SD_PRECISE,    "PRECISE",         menu_scanning_speed_acb},
+ { MT_ADV_CALLBACK,     SD_NORMAL,     "\x81\x46\x81\x47" /* 常规 */,          menu_scanning_speed_acb},    // order must match definition of enum
+ { MT_ADV_CALLBACK,     SD_PRECISE,    "\x80\x91\x81\x57" /* 精确 */,         menu_scanning_speed_acb},
 #ifdef TINYSA4
- { MT_ADV_CALLBACK,     SD_FAST,        "FAST",            menu_scanning_speed_acb},
+ { MT_ADV_CALLBACK,     SD_FAST,        "\x81\x58\x80\x31" /* 快速 */,            menu_scanning_speed_acb},
 #else
- { MT_ADV_CALLBACK | MT_LOW,SD_FAST,   "FAST",            menu_scanning_speed_acb},
+ { MT_ADV_CALLBACK | MT_LOW,SD_FAST,   "\x81\x58\x80\x31" /* 快速 */,            menu_scanning_speed_acb},
 #endif
- { MT_ADV_CALLBACK,     SD_NOISE_SOURCE,      "NOISE\nSOURCE",   menu_scanning_speed_acb},
+ { MT_ADV_CALLBACK,     SD_NOISE_SOURCE,      "\x80\x3B\x80\x4E\x80\x92" /* 噪声源 */,   menu_scanning_speed_acb},
  { MT_KEYPAD,           KM_FAST_SPEEDUP,"NSPEEDUP\n\b%s",  "2..20, 0=disable"},
  { MT_KEYPAD,           KM_FASTER_SPEEDUP,"WSPEEDUP\n\b%s",  "2..20, 0=disable"},
  { MT_NONE,     0, NULL, menu_back} // next-> menu_back
@@ -5201,7 +5201,7 @@ static const menuitem_t menu_sweep_speed[] =
 #if 0
 static const menuitem_t menu_noise_figure_confirm[] = {
   { MT_CALLBACK, 1,               "STORE\nTINYSA NF",       menu_noise_figure_confirm_cb },
-  { MT_CALLBACK, 0,               "CANCEL",   menu_noise_figure_confirm_cb },
+  { MT_CALLBACK, 0,               "\x81\x98\x81\x99" /* 取消 */,   menu_noise_figure_confirm_cb },
   { MT_NONE, 0, NULL, NULL } // sentinel
 };
 #endif
@@ -5229,7 +5229,7 @@ static const menuitem_t menu_curve3[] = {
 static const menuitem_t menu_curve2[] = {
 #ifdef TINYSA4
   { MT_FORM | MT_ADV_CALLBACK | MT_REPEATS, DATA_STARTS_REPEATS(7,7), MT_CUSTOM_LABEL, menu_curve_acb },
-  { MT_FORM | MT_SUBMENU,      0,  S_RARROW" MORE",     menu_curve3},
+  { MT_FORM | MT_SUBMENU,      0,  S_RARROW"\x81\x82\x81\x2A" /* 更多 */,     menu_curve3},
 #else
   { MT_FORM | MT_ADV_CALLBACK | MT_REPEATS, DATA_STARTS_REPEATS(5,5), MT_CUSTOM_LABEL, menu_curve_acb },
 #endif
@@ -5242,13 +5242,13 @@ static const menuitem_t menu_curve[] = {
 #else
   { MT_FORM | MT_ADV_CALLBACK | MT_REPEATS, DATA_STARTS_REPEATS(0,5), MT_CUSTOM_LABEL, menu_curve_acb },
 #endif
-  { MT_FORM | MT_SUBMENU,      0,  S_RARROW" MORE",     menu_curve2},
+  { MT_FORM | MT_SUBMENU,      0,  S_RARROW"\x81\x82\x81\x2A" /* 更多 */,     menu_curve2},
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_curve_confirm[] = {
   { MT_CALLBACK, 1,               "OK",       menu_curve_confirm_cb },
-  { MT_CALLBACK, 0,               "CANCEL",   menu_curve_confirm_cb },
+  { MT_CALLBACK, 0,               "\x81\x98\x81\x99" /* 取消 */,   menu_curve_confirm_cb },
   { MT_NONE, 0, NULL, NULL } // sentinel
 };
 
@@ -5328,9 +5328,9 @@ static const menuitem_t menu_settings4[] =
  { MT_KEYPAD,           KM_OVERCLOCK,  "OVERCLOCK\n\b%s", "Enter overclock amount"},
 
 #if 0                                                                           // only used during development
-  { MT_KEYPAD,   KM_COR_AM,     "COR\nAM", "Enter AM modulation correction"},
-  { MT_KEYPAD,   KM_COR_WFM,     "COR\nWFM", "Enter WFM modulation correction"},
-  { MT_KEYPAD,   KM_COR_NFM,     "COR\nNFM", "Enter NFM modulation correction"},
+  { MT_KEYPAD,   KM_COR_AM,     "\x80\x29\x80\x50\x41\x4D" /*校正AM*/, "Enter AM modulation correction"},
+  { MT_KEYPAD,   KM_COR_WFM,     "\x80\x29\x80\x50\x57\x46\x4D" /*校正WFM*/, "Enter WFM modulation correction"},
+  { MT_KEYPAD,   KM_COR_NFM,     "\x80\x29\x80\x50\x4E\x46\x4D" /*校正NFM*/, "Enter NFM modulation correction"},
 #endif
 //  { MT_CALLBACK,        0 ,     "CLEAR\nCONFIG",    menu_clearconfig_cb},
 //  { MT_SUBMENU,  0,             S_RARROW" MORE",     menu_settings3},
@@ -5351,15 +5351,15 @@ static const menuitem_t menu_settings3[] =
 //  { MT_KEYPAD | MT_LOW, KM_IF2,  "IF2 FREQ",           "Set to zero for no IF2"},
   { MT_KEYPAD,  KM_R,  "R\n\b%s",           "Set R"},
   { MT_KEYPAD,  KM_MOD,  "MODULO\n\b%s",           "Set MODULO"},
-  { MT_KEYPAD,  KM_CP,  "CP",             "Set CP"},
+  { MT_KEYPAD,  KM_CP,  "\x80\x71\x80\x98" /* 信道 */,             "Set CP"},
 #ifdef __WAIT_CTS_WHILE_SLEEPING__
-  { MT_ADV_CALLBACK,     0,     "SLEEP\nWAIT",    menu_sleep_acb},
+  { MT_ADV_CALLBACK,     0,     "\x82\x27\x82\x28\x81\x24\x80\x7B" /* 睡眠等待 */,    menu_sleep_acb},
 #endif
 #ifdef __HARMONIC__
-  { MT_SUBMENU          ,0,               "HARMONIC",         menu_harmonic},
+  { MT_SUBMENU          ,0,               "\x80\x96\x80\x6E" /* 谐波 */,         menu_harmonic},
 #endif
 //  { MT_ADV_CALLBACK | MT_LOW, 0,    "ULTRA\nMODE",      menu_settings_ultra_acb},
-  { MT_SUBMENU,  0,             S_RARROW" MORE",     menu_settings4},
+  { MT_SUBMENU,  0,             S_RARROW"\x81\x82\x81\x2A" /* 更多 */,     menu_settings4},
 #else
 #ifdef __ULTRA__
   { MT_ADV_CALLBACK,     0,     "ENABLE\nULTRA",    menu_ultra_acb},
@@ -5367,7 +5367,7 @@ static const menuitem_t menu_settings3[] =
   { MT_ADV_CALLBACK,     0,     "DEBUG\nSPUR",        menu_debug_spur_acb},
 #endif
 #ifdef __HARMONIC__
-  { MT_SUBMENU | MT_HIGH,0,               "HARMONIC",         menu_harmonic},
+  { MT_SUBMENU | MT_HIGH,0,               "\x80\x96\x80\x6E" /* 谐波 */,         menu_harmonic},
 //  { MT_ADV_CALLBACK,0,          "SPUR\nREMOVAL",          menu_harmonic_spur_acb},
 #endif
 #endif  // TINYSA4
@@ -5388,13 +5388,13 @@ static const menuitem_t menu_settings2[] =
   { MT_KEYPAD,   KM_ATTACK,      "ATTACK\n\b%s",   "0..100000ms"},
 #endif
 #endif
-  { MT_SUBMENU,0,               "SCAN\nSPEED",        menu_scanning_speed},
+  { MT_SUBMENU,0,               "\x80\x26\x80\x2D\x80\x31\x80\x2B" /* 扫描速度 */,        menu_scanning_speed},
 #ifdef TINYSA4
-  { MT_SUBMENU | MT_LOW,0,      "MIXER\nDRIVE",      menu_mixer_drive},
-  { MT_SUBMENU,  0,             S_RARROW" MORE",     menu_settings3},
+  { MT_SUBMENU | MT_LOW,0,      "\x81\x21\x80\x20\x81\x74\x80\x40" /* 混频驱动 */,      menu_mixer_drive},
+  { MT_SUBMENU,  0,             S_RARROW"\x81\x82\x81\x2A" /* 更多 */,     menu_settings3},
 #else
-  { MT_SUBMENU | MT_LOW,0,      "MIXER\nDRIVE",      menu_lo_drive},
-  { MT_KEYPAD,   KM_10MHZ,      "CORRECT\nFREQUENCY", "Enter actual l0MHz frequency"},
+  { MT_SUBMENU | MT_LOW,0,      "\x81\x21\x80\x20\x81\x74\x80\x40" /* 混频驱动 */,      menu_lo_drive},
+  { MT_KEYPAD,   KM_10MHZ,      "\x80\x20\x80\x22\x80\x29\x80\x50" /* 频率校正 */, "Enter actual l0MHz frequency"},
 #endif
   { MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
@@ -5402,12 +5402,12 @@ static const menuitem_t menu_settings2[] =
 #ifdef TINYSA4
 static const menuitem_t menu_settings[] =
 {
-  { MT_ADV_CALLBACK,0,              "PROGRESS\nBAR",        menu_progress_bar_acb},
+  { MT_ADV_CALLBACK,0,              "\x80\x7A\x80\x2B\x82\x26" /* 进度条 */,        menu_progress_bar_acb},
   { MT_ADV_CALLBACK,     0,         "DIRECT\nMODE",         menu_direct_acb},
-  { MT_ADV_CALLBACK,     0,         "LINEAR\nAVERAGING",    menu_linear_averaging_acb},
+  { MT_ADV_CALLBACK,     0,         "\x80\x27\x80\x9A\x80\x21\x80\x39" /* 线性平均 */,    menu_linear_averaging_acb},
   { MT_ADV_CALLBACK,     0,         "AUDIO\nAGC",           menu_audio_agc_acb},
 #ifdef __HARMONIC__
-  { MT_SUBMENU          ,0,         "HARMONIC",             menu_harmonic},
+  { MT_SUBMENU          ,0,         "\x80\x96\x80\x6E" /* 谐波 */,             menu_harmonic},
 #endif
   { MT_KEYPAD,      KM_FREQ_CORR,   "FREQ CORR\n\b%s",      "Enter ppb correction"},
 //  { MT_SUBMENU,     0,              "CALIBRATE\nHARMONIC",  menu_calibrate_harmonic},
@@ -5418,14 +5418,14 @@ static const menuitem_t menu_settings[] =
   { MT_CALLBACK,    FMT_BIN_FILE,   "DUMP\nFIRMWARE",       menu_sdcard_cb},
 #endif
 #ifdef __HAM_BAND__
-  { MT_ADV_CALLBACK, 1,         "HAM\nBANDS",         menu_settings_ham_bands},
+  { MT_ADV_CALLBACK, 1,         "\x81\x70\x81\x71\x80\x20\x80\x46" /* 业余频段 */,         menu_settings_ham_bands},
   { MT_ADV_CALLBACK, 2,         "SHOW\nBANDS",        menu_settings_ham_bands},
 #endif
 #ifdef __SD_CARD_LOAD__
   { MT_CALLBACK,    0 ,             "LOAD\nCONFIG.INI",     menu_load_config_cb},
 //  { MT_CALLBACK,        1 ,       "LOAD\nSETTING.INI",    menu_load_config_cb},
 #endif
-  { MT_ADV_CALLBACK,     0,              "INTERNALS",            menu_internals_acb},
+  { MT_ADV_CALLBACK,     0,              "\x81\x92\x81\x22" /* 内部 */,            menu_internals_acb},
   { MT_NONE,        0, NULL, menu_back} // next-> menu_back
 };
 #endif
@@ -5444,34 +5444,34 @@ static const menuitem_t menu_measure_noise_figure[] =
 static const menuitem_t menu_measure2[] = {
   { MT_ADV_CALLBACK,            M_AM,           "AM",           menu_measure_acb},
   { MT_ADV_CALLBACK,            M_FM,           "FM",           menu_measure_acb},
-  { MT_ADV_CALLBACK,            M_THD,          "THD",           menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_THD,          "\x81\x62\x81\x63\x80\x2B" /* 失真度 */,           menu_measure_acb},
 #ifdef __CHANNEL_POWER__
-  { MT_ADV_CALLBACK,            M_CP,           "CHANNEL\nPOWER",menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_CP,           "\x80\x71\x80\x98\x80\x99\x80\x22" /* 信道功率 */,menu_measure_acb},
 #endif
 #ifdef __LINEARITY__
-{ MT_ADV_CALLBACK | MT_LOW,   M_LINEARITY,  "LINEAR",         menu_measure_acb},
+{ MT_ADV_CALLBACK | MT_LOW,   M_LINEARITY,  "\x80\x27\x80\x9A" /* 线性 */,         menu_measure_acb},
 #endif
 #ifdef __NOISE_FIGURE__
-{ MT_SUBMENU | MT_LOW,          0,            "NOISE\nFIGURE",    menu_measure_noise_figure},
+{ MT_SUBMENU | MT_LOW,          0,            "\x80\x3B\x80\x4E\x81\x26\x80\x56" /* 噪声系数 */,    menu_measure_noise_figure},
 #endif
 //#ifdef __BANDS__
 //{ MT_ADV_CALLBACK,            M_BANDS,          "MULTI\nBAND",    menu_measure_acb},
 //#endif
 #ifdef __FFT_DECONV__
-  { MT_ADV_CALLBACK,            M_DECONV,  "DECONV",         menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_DECONV,  "\x81\x95\x81\x96\x81\x97" /* 反卷积 */,         menu_measure_acb},
 #endif
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_measure[] = {
-  { MT_ADV_CALLBACK,            M_OFF,        "OFF",            menu_measure_acb},
-  { MT_ADV_CALLBACK,            M_IMD,        "HARMONIC",       menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_OFF,        "\x80\x53" /* 关 */,            menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_IMD,        "\x80\x96\x80\x6E" /* 谐波 */,       menu_measure_acb},
   { MT_ADV_CALLBACK,            M_OIP3,       "OIP3",           menu_measure_acb},
-  { MT_ADV_CALLBACK,            M_PHASE_NOISE,"PHASE\nNOISE",   menu_measure_acb},
+  { MT_ADV_CALLBACK,            M_PHASE_NOISE,"\x80\x54\x80\x3B" /* 相噪 */,   menu_measure_acb},
   { MT_ADV_CALLBACK,            M_SNR,        "SNR",            menu_measure_acb},
   { MT_ADV_CALLBACK,            M_PASS_BAND,  "-3dB\nWIDTH",    menu_measure_acb},
   { MT_ADV_CALLBACK,            M_WIDTH,   "OCCUPIED\nWIDTH",menu_measure_acb},
-  { MT_SUBMENU,  0,             S_RARROW" MORE",                menu_measure2},
+  { MT_SUBMENU,  0,             S_RARROW"\x81\x82\x81\x2A" /* 更多 */,                menu_measure2},
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
 
@@ -5482,7 +5482,7 @@ static const menuitem_t menu_calibrate_harmonic[] =
  { MT_FORM | MT_TITLE,      1, "Connect %sHz at -50 to -10dBm",  menu_calibrate_harmonic_acb},      // Titles can have advanced callback for title format
 // { MT_FORM | MT_TITLE,      0, "Connect 5.34GHz at -50 to -10dBm",  NULL},
 #ifdef TINYSA4
-  { MT_FORM | MT_CALLBACK,   3, "CALIBRATE",        menu_calibrate_cb},
+  { MT_FORM | MT_CALLBACK,   3, "\x80\x29\x80\x44" /* 校准 */,        menu_calibrate_cb},
 #endif
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
@@ -5492,7 +5492,7 @@ static const menuitem_t menu_calibrate_harmonic_max[] =
 {
   { MT_FORM | MT_TITLE,      0, "Connect 7.25GHz at -50 to -10dBm",  NULL},
 #ifdef TINYSA4
-  { MT_FORM | MT_CALLBACK,   3, "CALIBRATE",        menu_calibrate_cb},
+  { MT_FORM | MT_CALLBACK,   3, "\x80\x29\x80\x44" /* 校准 */,        menu_calibrate_cb},
 #endif
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
@@ -5502,7 +5502,7 @@ static const menuitem_t menu_calibrate_normal[] =
 {
   { MT_FORM | MT_TITLE,      0, "Connect CAL and RF",  NULL},
 #ifdef TINYSA4
-  { MT_FORM | MT_CALLBACK,   1, "CALIBRATE",        menu_calibrate_cb},
+  { MT_FORM | MT_CALLBACK,   1, "\x80\x29\x80\x44" /* 校准 */,        menu_calibrate_cb},
 #endif
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
@@ -5511,7 +5511,7 @@ static const menuitem_t menu_calibrate[] =
 {
   { MT_FORM | MT_ADV_CALLBACK,  0, "CALIBRATE 100kHz to %sHz",  menu_calibrate_normal_acb},
   { MT_FORM | MT_ADV_CALLBACK,  0, "CALIBRATE above %sHz",   menu_calibrate_harmonic_acb},
-  { MT_FORM | MT_CALLBACK,      2, "RESET CALIBRATION",         menu_calibrate_cb},
+  { MT_FORM | MT_CALLBACK,      2, "\x80\x73\x80\x28\x80\x29\x80\x44" /* 重置校准 */,         menu_calibrate_cb},
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 #if 0
@@ -5519,7 +5519,7 @@ static const menuitem_t menu_calibrate_max[] =
 {
   { MT_FORM | MT_SUBMENU,   1, "CALIBRATE 100kHz to 7.25GHz",   menu_calibrate_normal},
   { MT_FORM | MT_SUBMENU,   1, "CALIBRATE above 7.25GHz",       menu_calibrate_harmonic_max},
-  { MT_FORM | MT_CALLBACK,   2, "RESET CALIBRATION",            menu_calibrate_cb},
+  { MT_FORM | MT_CALLBACK,   2, "\x80\x73\x80\x28\x80\x29\x80\x44" /* 重置校准 */,            menu_calibrate_cb},
   { MT_FORM | MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 #endif
@@ -5544,15 +5544,15 @@ const menuitem_t menu_serial_speed[] = {
 
 static const menuitem_t menu_connection[] = {
   { MT_ADV_CALLBACK, _MODE_USB,    "USB",    menu_connection_acb },
-  { MT_ADV_CALLBACK, _MODE_SERIAL, "SERIAL", menu_connection_acb },
-  { MT_SUBMENU,  0, "SERIAL\nSPEED", menu_serial_speed },
+  { MT_ADV_CALLBACK, _MODE_SERIAL, "\x81\x20\x80\x78" /* 串口 */, menu_connection_acb },
+  { MT_SUBMENU,  0, "\x81\x20\x80\x78\x80\x31\x80\x22" /* 串口速率 */, menu_serial_speed },
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 #endif
 
 const menuitem_t menu_touch[] = {
-  { MT_CALLBACK, CONFIG_MENUITEM_TOUCH_CAL,  "TOUCH CAL",  menu_config_cb},
-  { MT_CALLBACK, CONFIG_MENUITEM_TOUCH_TEST, "TOUCH TEST", menu_config_cb},
+  { MT_CALLBACK, CONFIG_MENUITEM_TOUCH_CAL,  "\x80\x3F\x80\x72\x80\x29\x80\x44" /* 触摸校准 */,  menu_config_cb},
+  { MT_CALLBACK, CONFIG_MENUITEM_TOUCH_TEST, "\x80\x3F\x80\x72\x80\x61\x81\x64" /* 触摸测试 */, menu_config_cb},
 #ifdef TINYSA4
   { MT_CALLBACK, CONFIG_MENUITEM_NOTEPAD, "DRAWPAD", menu_config_cb},
 #endif
@@ -5569,48 +5569,48 @@ const menuitem_t menu_date_time[] = {
 
 #ifdef TINYSA4
 static const menuitem_t menu_lock_display[] = {
-  { MT_CALLBACK, 1, "LOCK\nDISPLAY", menu_lock_display_cb },
-  { MT_CALLBACK, 0, "UNLOCK\nDISPLAY", menu_lock_display_cb },
+  { MT_CALLBACK, 1, "\x81\x36\x82\x23\x80\x59\x81\x37" /* 锁定屏幕 */, menu_lock_display_cb },
+  { MT_CALLBACK, 0, "\x82\x2A\x81\x36\x80\x59\x81\x37" /* 解锁屏幕 */, menu_lock_display_cb },
   { MT_NONE, 0, NULL, menu_back} // next-> menu_back
 };
 #endif
 
 static const menuitem_t menu_config2[] =
 {
- { MT_ADV_CALLBACK,     0,     "PULSE\nHIGH",            menu_settings_pulse_acb},
- { MT_ADV_CALLBACK | MT_LOW, 0,"LO OUTPUT", menu_lo_output_acb},
+ { MT_ADV_CALLBACK,     0,     "\x80\x77\x80\x78\x81\x69\x81\x6A" /* 高口脉冲 */,            menu_settings_pulse_acb},
+ { MT_ADV_CALLBACK | MT_LOW, 0,"\x80\x74\x80\x9F\x80\x2E\x80\x37" /* 本振输出 */, menu_lo_output_acb},
 #ifdef __ULTRA__
  { MT_ADV_CALLBACK,     0,     "ENABLE\nULTRA",    menu_ultra_acb},
 #endif
- { MT_KEYPAD,   KM_GRIDLINES,  "MINIMUM\nGRIDLINES", "Enter minimum horizontal grid divisions, 0 is always 10"},
+ { MT_KEYPAD,   KM_GRIDLINES,  "\x80\x2C\x80\x42\x80\x79\x80\x27" /* 最小格线 */, "Enter minimum horizontal grid divisions, 0 is always 10"},
  { MT_KEYPAD,  KM_VAR,         "JOG STEP\n\b%s","0 = AUTO"},
- { MT_CALLBACK,        0 ,     "CLEAR\nCONFIG",    menu_clearconfig_cb},
+ { MT_CALLBACK,        0 ,     "\x81\x6C\x81\x6D\x80\x47\x80\x28" /* 清空配置 */,    menu_clearconfig_cb},
 #ifdef __USE_SERIAL_CONSOLE__
- { MT_SUBMENU,          0, "CONNECTION", menu_connection},
+ { MT_SUBMENU,          0, "\x81\x6E\x81\x6F" /* 连接 */, menu_connection},
 #endif
- { MT_SUBMENU,     0,              "LEVEL\nCORRECTION",    menu_actual_power},
+ { MT_SUBMENU,     0,              "\x80\x23\x80\x21\x80\x29\x80\x50" /* 电平校正 */,    menu_actual_power},
 #ifdef TINYSA4
- { MT_SUBMENU,          0, "EXPERT\nCONFIG", menu_settings},
+ { MT_SUBMENU,          0, "\x81\x72\x81\x73\x80\x47\x80\x28" /* 专家配置 */, menu_settings},
 #else
 #ifdef __HAM_BAND__
-  { MT_ADV_CALLBACK, 1,         "HAM\nBANDS",         menu_settings_ham_bands},
+  { MT_ADV_CALLBACK, 0,         "\x81\x70\x81\x71\x80\x20\x80\x46" /* 业余频段 */,         menu_settings_ham_bands},
 #endif
- { MT_SUBMENU,          0, "EXPERT\nCONFIG", menu_settings2},
+ { MT_SUBMENU,          0, "\x81\x72\x81\x73\x80\x47\x80\x28" /* 专家配置 */, menu_settings2},
 #endif
  { MT_NONE,             0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_config[] = {
-  { MT_SUBMENU,  0,                        "TOUCH",     menu_touch},
-  { MT_CALLBACK, CONFIG_MENUITEM_SELFTEST, "SELF TEST", menu_config_cb},
+  { MT_SUBMENU,  0,                        "\x80\x3F\x80\x72" /* 触摸 */,     menu_touch},
+  { MT_CALLBACK, CONFIG_MENUITEM_SELFTEST, "\x80\x4B\x81\x65" /* 自检 */, menu_config_cb},
 #ifdef __CALIBRATE__
 #ifdef TINYSA4
-  { MT_CALLBACK, CONFIG_MENUITEM_CALIBRATE, "LEVEL CAL", menu_config_cb},
+  { MT_CALLBACK, CONFIG_MENUITEM_CALIBRATE, "\x80\x23\x80\x21\x80\x29\x80\x44" /* 电平校准 */, menu_config_cb},
 #else
-  { MT_SUBMENU,  0,                        "LEVEL CAL", menu_calibrate},
+  { MT_SUBMENU,  0,                        "\x80\x23\x80\x21\x80\x29\x80\x44" /* 电平校准 */, menu_calibrate},
 #endif
 #endif
-  { MT_CALLBACK, CONFIG_MENUITEM_VERSION,  "VERSION",   menu_config_cb},
+  { MT_CALLBACK, CONFIG_MENUITEM_VERSION,  "\x81\x66\x80\x74" /* 版本 */,   menu_config_cb},
 #ifdef __SPUR__
   { MT_ADV_CALLBACK,0,          "%s",          menu_spur_acb},
 #endif
@@ -5619,12 +5619,12 @@ static const menuitem_t menu_config[] = {
   { MT_ADV_CALLBACK, 0, "BRIGHTNESS\n \b%d%%", menu_brightness_acb},
 #endif
 #ifdef __USE_RTC__
-  { MT_SUBMENU,  0, "DATE\nTIME", menu_date_time},
+  { MT_SUBMENU,  0, "\x81\x33\x81\x34\x80\x45\x80\x41" /* 日期时间 */, menu_date_time},
 #endif
 #ifdef __HAS_DFU__
   { MT_SUBMENU,  0, S_RARROW" DFU",  menu_dfu},
 #endif
-  { MT_SUBMENU,  0, S_RARROW"MORE", menu_config2},
+  { MT_SUBMENU,  0, S_RARROW"\x81\x82\x81\x2A" /* 更多 */, menu_config2},
   { MT_NONE,     0, NULL, menu_back} // next-> menu_back
 };
 
@@ -5655,34 +5655,34 @@ static const menuitem_t menu_subtract_trace[] =
 static const menuitem_t menu_traces[] =
 {
  { MT_ADV_CALLBACK,0,          "TRACE %d",                  menu_traces_acb},
- { MT_ADV_CALLBACK,1,          "ENABLE",                    menu_traces_acb},
- { MT_ADV_CALLBACK,2,          "FREEZE",                    menu_traces_acb},
+ { MT_ADV_CALLBACK,1,          "\x81\x4D\x80\x6B" /* 启用 */,                    menu_traces_acb},
+ { MT_ADV_CALLBACK,2,          "\x81\x4E\x81\x4F" /* 冻结 */,                    menu_traces_acb},
  { MT_ADV_CALLBACK,3,          MT_CUSTOM_LABEL,             menu_traces_acb},       // Calc
- { MT_ADV_CALLBACK,4,          "NORMALIZE",                 menu_traces_acb},
+ { MT_ADV_CALLBACK,4,          "\x81\x52\x81\x53\x80\x8E" /* 归一化 */,                 menu_traces_acb},
  { MT_ADV_CALLBACK,5,          MT_CUSTOM_LABEL,             menu_traces_acb},       // Trace Math
- { MT_SUBMENU,     0,          "TRACE\n"S_RARROW"TRACE",    menu_store_trace},
+ { MT_SUBMENU,     0,          "\x80\x3D\x80\x27" /* 迹线 */S_RARROW"\x80\x3D\x80\x27" /* 迹线 */,    menu_store_trace},
 #ifdef TINYSA4
- { MT_ADV_CALLBACK,6,          "TRACE\n"S_RARROW"SD",       menu_traces_acb},
- { MT_CALLBACK, FMT_CSV_FILE,  "SD"S_RARROW"\nTRACE",       menu_sdcard_browse_cb },
+ { MT_ADV_CALLBACK,6,          "\x80\x3D\x80\x27" /* 迹线 */S_RARROW"SD",       menu_traces_acb},
+ { MT_CALLBACK, FMT_CSV_FILE,  "SD"S_RARROW"\x80\x3D\x80\x27" /* 迹线 */,       menu_sdcard_browse_cb },
 #endif
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_display[] = {
-  { MT_ADV_CALLBACK,0,             "PAUSE\nSWEEP",    menu_pause_acb},
+  { MT_ADV_CALLBACK,0,             "\x80\x5F\x80\x60\x80\x26\x80\x2D" /* 暂停扫描 */,    menu_pause_acb},
   { MT_ADV_CALLBACK,1,             MT_CUSTOM_LABEL,   menu_waterfall_acb},
 #ifdef __LEVEL_METER__
-  { MT_ADV_CALLBACK,1,             "BIG\nNUMBER",     menu_level_meter_acb},
+  { MT_ADV_CALLBACK,1,             "\x80\x4D\x81\x54" /* 大字 */,     menu_level_meter_acb},
 #endif
 #ifdef __DRAW_LINE__
-  { MT_ADV_CALLBACK,1,             "DRAW\nLINE",      menu_settings_draw_line_acb},
+  { MT_ADV_CALLBACK,1,             "\x81\x55\x80\x27" /* 画线 */,      menu_settings_draw_line_acb},
 #endif
-  { MT_KEYPAD,      KM_SWEEP_TIME, "SWEEP\nTIME",     "0..600s, 0=disable"},       // This must be item 3 to match highlighting
-  { MT_SUBMENU,     0,             "SWEEP\nPOINTS",   menu_sweep_points},
-  { MT_SUBMENU,     0,             "SWEEP\nACCURACY",  menu_sweep_speed},
-  { MT_ADV_CALLBACK,0,             "ROTATE\nDISPLAY",    menu_flip_acb},
+  { MT_KEYPAD,      KM_SWEEP_TIME, "\x80\x26\x80\x2D\x80\x45\x80\x41" /* 扫描时间 */,     "0..600s, 0=disable"},       // This must be item 3 to match highlighting
+  { MT_SUBMENU,     0,             "\x80\x26\x80\x2D\x81\x56\x80\x56" /* 扫描点数 */,   menu_sweep_points},
+  { MT_SUBMENU,     0,             "\x80\x26\x80\x2D\x80\x91\x80\x2B" /* 扫描精度 */,  menu_sweep_speed},
+  { MT_ADV_CALLBACK,0,             "\x81\x59\x81\x5A\x80\x59" /* 翻转屏 */,    menu_flip_acb},
 #ifdef TINYSA4
-  { MT_SUBMENU,0,             "LOCK\nDISPLAY",    menu_lock_display},
+  { MT_SUBMENU,0,             "\x81\x36\x82\x23\x80\x59\x81\x37" /* 锁定屏幕 */,    menu_lock_display},
 #endif
 //#ifdef __REMOTE_DESKTOP__
 //  { MT_ADV_CALLBACK,0,          "SEND\nDISPLAY",    menu_send_display_acb},
@@ -5709,9 +5709,9 @@ static const menuitem_t menu_unit[] =
 };
 
 static const menuitem_t menu_trigger[] = {
-  { MT_ADV_CALLBACK, T_AUTO,     "AUTO",           menu_trigger_acb},
-  { MT_ADV_CALLBACK, T_NORMAL,   "NORMAL",         menu_trigger_acb},
-  { MT_ADV_CALLBACK, T_SINGLE,   "SINGLE",         menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_AUTO,     "\x80\x4B\x80\x40" /* 自动 */,           menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_NORMAL,   "\x81\x46\x81\x47" /* 常规 */,         menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_SINGLE,   "\x80\x67\x80\x88" /* 单次 */,         menu_trigger_acb},
 //  { MT_ADV_CALLBACK, T_DONE,     "READY",          menu_trigger_acb},
 #ifdef __TRIGGER_TRACE__
   { MT_ADV_CALLBACK, 254,        MT_CUSTOM_LABEL,    menu_trigger_level_acb},
@@ -5719,36 +5719,36 @@ static const menuitem_t menu_trigger[] = {
   { MT_KEYPAD,       KM_TRIGGER, "LEVEL\n\b%s", NULL},
 #endif
 #if 0
-  { MT_ADV_CALLBACK, T_UP,       "EDGE\nUP",       menu_trigger_acb},
-  { MT_ADV_CALLBACK, T_DOWN,     "EDGE\nDOWN",     menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_UP,       "\x80\x69\x80\x4C\x80\x68" /* 上升沿 */,       menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_DOWN,     "\x80\x6A\x80\x89\x80\x68" /* 下降沿 */,     menu_trigger_acb},
 #else
   { MT_ADV_CALLBACK, T_UP,     "EDGE\n\b%s",     menu_trigger_acb},
 #endif
   { MT_ADV_CALLBACK, T_MODE,     "TRIGGER\n\b%s",  menu_trigger_acb},
   { MT_KEYPAD,       KM_TRIGGER_GRID, "INTERVAL\n\b%ss", NULL},
 #ifdef __BEEP__
-  { MT_ADV_CALLBACK, T_BEEP,     "BEEP",       menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_BEEP,     "\x81\x87\x81\x88" /* 蜂鸣 */,       menu_trigger_acb},
 #endif
 #ifdef TINYSA4
-  { MT_ADV_CALLBACK, T_AUTO_SAVE,     "AUTO SAVE",       menu_trigger_acb},
+  { MT_ADV_CALLBACK, T_AUTO_SAVE,     "\x80\x4B\x80\x40\x80\x33\x80\x36" /* 自动保存 */,       menu_trigger_acb},
 #endif
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
 
 static const menuitem_t menu_level[] = {
-  { MT_SUBMENU, 0,              "REF LEVEL",    menu_reflevel},
+  { MT_SUBMENU, 0,              "\x80\x83\x80\x84\x80\x23\x80\x21" /* 参考电平 */,    menu_reflevel},
 //{ MT_SUBMENU, 0,              "SCALE/DIV",    menu_scale_per},
-  { MT_CALLBACK,0,              "SCALE/DIV",    menu_scale_cb},
-  { MT_SUBMENU, 0,              "ATTENUATE",    menu_atten},
+  { MT_CALLBACK,0,              "\x81\x43\x80\x2B" /* 刻度 */,    menu_scale_cb},
+  { MT_SUBMENU, 0,              "\x80\x4A\x80\x3E" /* 衰减 */,    menu_atten},
 //  { MT_SUBMENU,0,             "CALC",         menu_average},
-  { MT_SUBMENU, 0,              "UNIT",         menu_unit},
+  { MT_SUBMENU, 0,              "\x80\x67\x80\x85" /* 单位 */,         menu_unit},
   { MT_KEYPAD,  KM_EXT_GAIN,      "EXT GAIN\n\b%s",NULL},
 #ifdef TINYSA4
   { MT_ADV_CALLBACK | MT_LOW ,0,"LNA",          menu_extra_lna_acb},
  #endif
-  { MT_SUBMENU,  0,             "TRIGGER",      menu_trigger},
+  { MT_SUBMENU,  0,             "\x80\x3F\x80\x87" /* 触发 */,      menu_trigger},
 #ifdef __LISTEN__
-  { MT_ADV_CALLBACK, 0,             "LISTEN",       menu_listen_acb},
+  { MT_ADV_CALLBACK, 0,             "\x81\x4B\x81\x4C" /* 监听 */,       menu_listen_acb},
 #endif
   { MT_NONE,   0, NULL, menu_back} // next-> menu_back
 };
@@ -5760,14 +5760,14 @@ static const menuitem_t menu_stimulus[] = {
   { MT_KEYPAD,  KM_SPAN,        "SPAN\n\b%s",        NULL},
   { MT_KEYPAD,  KM_CW,          "ZERO SPAN",   NULL},
 #ifdef __BANDS__
-  { MT_ADV_CALLBACK, 0,         "MULTI\nBAND",       menu_multi_band_acb},
+  { MT_ADV_CALLBACK, 0,         "\x81\x2A\x80\x20\x80\x46" /* 多频段 */,       menu_multi_band_acb},
 #endif
   { MT_SUBMENU,0,               "RBW",         menu_rbw},
 #ifdef __VBW__
   { MT_SUBMENU,     0,             "VBW",             menu_vbw},
 #endif
-  { MT_ADV_CALLBACK,0,          "SHIFT\nFREQ", menu_shift_acb},
-  { MT_CALLBACK, ST_CENTER, "MARKER\n"S_RARROW" CENTER",   menu_marker_op_cb },
+  { MT_ADV_CALLBACK,0,          "\x80\x20\x80\x82" /* 频移 */, menu_shift_acb},
+  { MT_CALLBACK, ST_CENTER, "\x80\x2F\x80\x32" /* 标记 */S_RARROW"\x80\x38\x80\x66" /* 中心 */,   menu_marker_op_cb },
   { MT_NONE,    0, NULL, menu_back} // next-> menu_back
 };
 
@@ -5794,15 +5794,15 @@ static const menuitem_t menu_storage_more[] = {
 
 static const menuitem_t menu_storage[] = {
 #ifdef __SD_FILE_BROWSER__
-  { MT_CALLBACK, FMT_BMP_FILE,      "LOAD\nCAPTURE",        menu_sdcard_browse_cb },
-  { MT_CALLBACK, FMT_PRS_FILE,      "LOAD\nSETTINGS",       menu_sdcard_browse_cb },
-  { MT_CALLBACK, FMT_CMD_FILE,      "LOAD\nCMD",             menu_sdcard_browse_cb },
-  { MT_CALLBACK, FMT_CFG_FILE,      "LOAD\nCONFIG",          menu_sdcard_browse_cb },
+  { MT_CALLBACK, FMT_BMP_FILE,      "\x80\x35\x80\x24\x81\x35\x80\x55" /* 载入截图 */,        menu_sdcard_browse_cb },
+  { MT_CALLBACK, FMT_PRS_FILE,      "\x80\x35\x80\x24\x80\x3C\x80\x28" /* 载入设置 */,       menu_sdcard_browse_cb },
+  { MT_CALLBACK, FMT_CMD_FILE,      "\x80\x35\x80\x24\x80\x7F\x82\x20" /* 载入命令 */,             menu_sdcard_browse_cb },
+  { MT_CALLBACK, FMT_CFG_FILE,      "\x80\x35\x80\x24\x80\x47\x80\x28" /* 载入配置 */,          menu_sdcard_browse_cb },
 #endif
-  { MT_CALLBACK,    FMT_BMP_FILE,   "SAVE\nCAPTURE",        menu_sdcard_cb},
+  { MT_CALLBACK,    FMT_BMP_FILE,   "\x80\x33\x80\x36\x81\x35\x80\x55" /* 保存截图 */,        menu_sdcard_cb},
   { MT_CALLBACK,    FMT_PRS_FILE,   "SAVE\nSETTINGS",       menu_sdcard_cb},
   { MT_CALLBACK,    FMT_CFG_FILE,   "SAVE\nCONFIG",         menu_sdcard_cb},
-  { MT_CALLBACK,    FMT_CSV_FILE,   "SAVE\nTRACES",         menu_save_traces_cb},
+  { MT_CALLBACK,    FMT_CSV_FILE,   "\x80\x33\x80\x36\x80\x3D\x80\x27" /* 保存迹线 */,          menu_save_traces_cb},
   { MT_SUBMENU,     0,              S_RARROW" MORE",        menu_storage_more },
 //  { MT_KEYPAD,      KM_INTERVAL,    "INTERVAL\n\b%s",       NULL },
   { MT_NONE,    0, NULL, menu_back} // next-> menu_back
@@ -5833,19 +5833,19 @@ const menuitem_t menu_mode[] = {
 #endif
 
 static const menuitem_t menu_top[] = {
-  { MT_ADV_CALLBACK,0,             "PAUSE",    menu_pause_acb},
-  { MT_SUBMENU,  0, "PRESET",       menu_load_preset},
-  { MT_SUBMENU,  0, "FREQUENCY",    menu_stimulus},
-  { MT_SUBMENU,  0, "LEVEL",        menu_level},
-  { MT_SUBMENU,  0, "TRACE",        menu_traces},
-  { MT_SUBMENU,  0, "DISPLAY",      menu_display},
-  { MT_SUBMENU,  0, "MARKER",       menu_marker},
-  { MT_SUBMENU,  0, "MEASURE",      menu_measure},
+  { MT_ADV_CALLBACK,0,             "\x80\x5F\x80\x60" /* 暂停 */,    menu_pause_acb},
+  { MT_SUBMENU,  0, "\x81\x39\x80\x3C" /* 预设 */,       menu_load_preset},
+  { MT_SUBMENU,  0, "\x80\x20\x80\x22" /* 频率 */,    menu_stimulus},
+  { MT_SUBMENU,  0, "\x80\x23\x80\x21" /* 电平 */,        menu_level},
+  { MT_SUBMENU,  0, "\x80\x3D\x80\x27" /* 迹线 */,        menu_traces},
+  { MT_SUBMENU,  0, "\x81\x3A\x81\x3B" /* 显示 */,      menu_display},
+  { MT_SUBMENU,  0, "\x80\x2F\x80\x32" /* 标记 */,       menu_marker},
+  { MT_SUBMENU,  0, "\x80\x61\x81\x3C" /* 测量 */,      menu_measure},
 #ifdef __USE_SD_CARD__
   { MT_SUBMENU,  0, "STORAGE",      menu_storage},
 #endif
-  { MT_SUBMENU,  0, "CONFIG",       menu_config},
-  { MT_SUBMENU,  0, "MODE",         menu_mode},
+  { MT_SUBMENU,  0, "\x80\x47\x80\x28" /* 配置 */,       menu_config},
+  { MT_SUBMENU,  0, "\x81\x28\x81\x29" /* 模式 */,         menu_mode},
   { MT_NONE,     0, NULL, NULL } // sentinel,
  // MENUITEM_CLOSE,
 };
@@ -5945,7 +5945,7 @@ static void fetch_numeric_target(uint8_t mode)
     if (!setting.auto_IF)
       plot_printf(uistat.text, sizeof uistat.text, "%.3QHz", uistat.freq_value);
     else
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
     break;
 #ifdef TINYSA4
   case KM_IF2:
@@ -5957,13 +5957,13 @@ static void fetch_numeric_target(uint8_t mode)
     if (setting.R)
       plot_printf(uistat.text, sizeof uistat.text, "%d", setting.R);
     else
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
     break;
   case KM_MOD:
     if (local_modulo)
       plot_printf(uistat.text, sizeof uistat.text, "%d", local_modulo);
     else
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
    break;
   case KM_CP:
     uistat.value = ADF4351_get_CP();
@@ -5975,7 +5975,7 @@ static void fetch_numeric_target(uint8_t mode)
     if (uistat.value)
       plot_printf(uistat.text, sizeof uistat.text, "%dus", ((int32_t)uistat.value));
     else
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
     break;
   case KM_FAST_SPEEDUP:
     uistat.value = setting.fast_speedup;
@@ -6038,7 +6038,7 @@ static void fetch_numeric_target(uint8_t mode)
   case KM_ULTRA_START:
     uistat.freq_value = config.ultra_start;
     if (config.ultra_start == ULTRA_AUTO)
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
     else
       plot_printf(uistat.text, sizeof uistat.text, "%.3QHz", uistat.freq_value );
     break;
@@ -6206,7 +6206,7 @@ static void fetch_numeric_target(uint8_t mode)
     if ( setting.frequency_var)
       plot_printf(uistat.text, sizeof uistat.text, "%.4QHz", setting.frequency_var);
     else
-      plot_printf(uistat.text, sizeof uistat.text, "AUTO");
+      plot_printf(uistat.text, sizeof uistat.text, "\x80\x4B\x80\x40" /* 自动 */);
 
     break;
 #ifdef __NOISE_FIGURE__
@@ -6676,7 +6676,7 @@ redraw_cal_status:
 #ifdef TINYSA4
     if (level_error) {
       ili9341_set_foreground(LCD_BRIGHT_COLOR_RED);
-      ili9341_drawstring("LEVEL\nERROR", 0 , 80);
+      ili9341_drawstring("\x80\x23\x80\x21\x80\x7C\x80\x95" /* 电平误差 */, 0 , 80);
     }
     if (depth_error) {
       ili9341_set_foreground(LCD_BRIGHT_COLOR_RED);
@@ -6712,7 +6712,7 @@ redraw_cal_status:
   ili9341_set_foreground(color);
   if (setting.auto_reflevel){
     y += YSTEP + YSTEP/2 ;
-    ili9341_drawstring("AUTO", x, y);
+    ili9341_drawstring("\x80\x4B\x80\x40" /* 自动 */, x, y);
   }
 #endif
   lcd_printf(x, y, "%c%s", unit_scale_text[setting.unit_scale_index], unit);
@@ -6738,7 +6738,7 @@ redraw_cal_status:
   // Trigger status
   if (is_paused()) {
     ili9341_set_foreground(LCD_BRIGHT_COLOR_GREEN);
-    ili9341_drawstring("PAUSED", x, y);
+    ili9341_drawstring("PAUSED" /* 暂停 */, x, y);
     y += YSTEP + YSTEP/2 ;
   }
   if (setting.trigger == T_SINGLE || setting.trigger == T_NORMAL ) {

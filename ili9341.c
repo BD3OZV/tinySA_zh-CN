@@ -21,6 +21,9 @@
 #include "ch.h"
 #include "hal.h"
 #include "nanovna.h"
+#ifdef __CJK_FONT__
+#include "cjkfont.h"
+#endif
 #ifdef TINYSA4
 #include "si4432.h"
 #endif
@@ -833,7 +836,15 @@ void ili9341_drawstring(const char *str, int x, int y)
 {
   int x_pos = x;
   while (*str) {
-    uint8_t ch = *str++;
+    #ifdef __CJK_FONT__
+    if ((uint8_t)*str & 0x80) {
+      uint16_t idx = ((uint16_t)((uint8_t)str[0] & 0x7F) << 7) | ((uint8_t)str[1] - 0x20);
+      str += 2;
+      if (idx < CJK_COUNT) { ili9341_blitBitmap(x, y, CJK_W, CJK_H, cjk_glyphs[idx]); x += CJK_W; }
+      continue;
+    }
+#endif
+uint8_t ch = *str++;
     if (ch == '\n') {x = x_pos; y+=FONT_STR_HEIGHT; continue;}
     const uint8_t *char_buf = FONT_GET_DATA(ch);
     uint16_t w = FONT_GET_WIDTH(ch);
@@ -849,6 +860,17 @@ void ili9341_drawstring_7x13(const char *str, int x, int y)
     uint8_t ch = *str++;
     if (ch == '\n') {x = x_pos; y+=bFONT_STR_HEIGHT; continue;}
     if (ch == '\b') {ili9341_set_foreground(LCD_BRIGHT_COLOR_BLUE); continue;};
+#ifdef __CJK_FONT__
+    if (ch & 0x80) {
+      uint16_t idx = ((uint16_t)(ch & 0x7F) << 7) | ((uint8_t)*str - 0x20);
+      if (*str) str++;
+      if (idx < CJK_COUNT) {
+        ili9341_blitBitmap(x, y, CJK_W, CJK_H, cjk_glyphs[idx]);
+        x += CJK_W;
+      }
+      continue;
+    }
+#endif
     const uint8_t *char_buf = bFONT_GET_DATA(ch);
     uint16_t w = bFONT_GET_WIDTH(ch);
     ili9341_blitBitmap(x, y, w, bFONT_GET_HEIGHT, char_buf);
@@ -861,7 +883,15 @@ void ili9341_drawstring_10x14(const char *str, int x, int y)
 #ifdef wFONT_GET_DATA
   int x_pos = x;
   while (*str) {
-    uint8_t ch = *str++;
+    #ifdef __CJK_FONT__
+    if ((uint8_t)*str & 0x80) {
+      uint16_t idx = ((uint16_t)((uint8_t)str[0] & 0x7F) << 7) | ((uint8_t)str[1] - 0x20);
+      str += 2;
+      if (idx < CJK_COUNT) { ili9341_blitBitmap(x, y, CJK_W, CJK_H, cjk_glyphs[idx]); x += CJK_W; }
+      continue;
+    }
+#endif
+uint8_t ch = *str++;
     if (ch == '\n') {x = x_pos; y+=wFONT_STR_HEIGHT; continue;}
     const uint8_t *char_buf = wFONT_GET_DATA(ch);
     uint16_t w = wFONT_GET_WIDTH(ch);

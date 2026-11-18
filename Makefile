@@ -182,7 +182,7 @@ CSRC = $(STARTUPSRC) \
        usb_msc.c \
        fw_update.c \
        NANOVNA_STM32_F303/adc.c \
-       main.c plot.c ui.c ili9341.c tlv320aic3204.c si5351.c numfont20x22.c Font5x7.c Font10x14.c flash.c si4468.c  Font7x13b.c rtc.c
+       main.c plot.c ui.c ili9341.c tlv320aic3204.c si5351.c numfont20x22.c Font5x7.c Font10x14.c flash.c si4468.c  Font7x13b.c rtc.c  cjkfont.c
 else
 CSRC = $(STARTUPSRC) \
        $(KERNSRC) \
@@ -194,7 +194,7 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        usbcfg.c \
        NANOVNA_STM32_F072/adc.c \
-       main.c plot.c ui.c ili9341.c numfont20x22.c Font5x7.c Font10x14.c flash.c si4432.c  Font7x13b.c
+       main.c plot.c ui.c ili9341.c numfont20x22.c Font5x7.c Font10x14.c flash.c si4432.c  Font7x13b.c cjkfont.c
 endif
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
@@ -288,8 +288,10 @@ UDEFS+= -DVNA_USE_LSE
 # Use R as usb pullup
 UDEFS+= -DUSB_DP_R_VDD
 #-DCH_DBG_STATISTICS 
+# Add Chinese Language
+UDEFS+= -D__CJK_FONT__
 else
-UDEFS = -DSHELL_CMD_TEST_ENABLED=FALSE -DSHELL_CMD_MEM_ENABLED=FALSE -DARM_MATH_CM0 -DVERSION=\"$(VERSION)\" -DTINYSA_F072 -DTINYSA3
+UDEFS = -DSHELL_CMD_TEST_ENABLED=FALSE -DSHELL_CMD_MEM_ENABLED=FALSE -DARM_MATH_CM0 -DVERSION=\"$(VERSION)\" -DTINYSA_F072 -DTINYSA3 -D__CJK_FONT__
 endif
 
 # Define ASM defines here
