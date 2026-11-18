@@ -135,3 +135,5 @@ tinySA is a trademark owned by its respective owner. Unauthorized use the the na
 * [@hugen79](https://github.com/hugen79)
 * [@cho45](https://github.com/cho45)
 * [@DiSlord](https://github.com/DiSlord/)
+### 汉化说明
+基于[@erikkaashoek](https://github.com/erikkaashoek)的最新版本代码，和[BH6EMP](https://github.com/BH6EMP/tinySA-CN-BH6EMP)的汉化方案，整合了此项目。在TinySA Ultra+ZS406上测试通过。TinySA普通版应该也可以用。
